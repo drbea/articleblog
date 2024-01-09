@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Deconnexion{% endblock title %}
+{% block headerContent %}{% endblock  %}
+{% block navcontent %}{% endblock  %}
+{% block content %}
+    <h1 sclass="Logout_title">Deconnexion reussie</h1>
+    <p> Vous avez été déconnecté avec succès <a href="{% url "authentication:login" %}"> Se connecter a nouveau </a> </p>
+
+{% endblock content %}
+

@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+
+
+.header-links a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;  
+}
+
+header {
+    background-color:  cornflowerblue;
+    color: #333333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header li {
+    list-style-type: none;
+}
+.search-bar, .corbeille a{
+    color: #d9dfea;
+}
+
+.container {
+    display: flex;
+   /*  flex: 1; */
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin: auto;
+}
+
+.sidebar {
+    background-color: cornflowerblue;
+    width: 200px;
+    /* background-color: #f4f4f4; */
+    padding: 20px;
+    height: 100%;
+    
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+
+.sidebar a {
+    text-decoration: none;
+
+}
+
+.Login_title {
+    text-align: center;
+}
+
+.login-contains , .signup_contains{
+    display: flex;
+    -ms-flex-align: center;
+    margin: 100px 50px;
+   /*  float: inline-end; */
+}
+
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    /* color: #371265; */
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+form label {
+    display: block;
+    width: 150px;
+    float: left;
+    text-align: right;
+    padding: 4px 10px 0 0;
+}
+
+form input[type="email"], form input[type="text"], 
+form input[type="password"]{
+   /*  display: block; */
+    width: 250px;
+    padding: 2px;
+}
+
+
+form input[type="submit"] {
+    /* margin: 0 20px 0 160px; */
+    margin-right: 50px;
+    /* margin-left: auto; */
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d9dfea #0e1f5b #0e1f5b #eae1d9;
+    background-color: #b55998;
+    color: #fff;
+    padding: 2px 15px 3px 15px;
+    text-align: center;
+}
+
+
+form.inlineForm label {
+    display: inline;
+  /*   float: none; */
+    padding: 0;
+
+}
+
+form.inline input[type="text"] {
+    display: inline-block;
+    width: 150px;
+
+}
+
+form.inline input[type="submit"] {
+    margin: 0;
+}
+
+
+.class_form , .signup_form{
+    margin-top: 50px;
+   
+}
+
+
+/* ############ Profile############ */
+.user_account_info {
+    display: flex;
+    justify-items: flex-end;
+   
+}
+
+.profile-left-side {
+    float: left;
+    width: 65%;
+}
+
+.profile-right-side {
+    float: right;
+    width: 35%;
+}
+
+.header-img {
+    width: 17px;
+    margin-right: 3px;
+}
+
+
+.grid-container {
+    display: flex;
+   flex: auto;
+   margin: 10px 10px 5px;
+}
+
+.article-container {
+    margin-right: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.article-detail {
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #content {
+        margin-left: 0;
+    }
+}
+

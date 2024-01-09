@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Acceuil{% endblock %}
+
+{% block content %}
+    <h1>Bienvenu sur mon Blog</h1>
+
+<div class="grid-container">
+   {% if articles %}
+        {% for article in articles %}
+        <div class="article-container">
+            <h3><a href="{% url "article:article_details" article.id %}" class="article-detail">{{article.title}}</a></h3>
+            <p>
+                <img src="/media/{{ article.image }}" width="80" height="120" />
+            </p>
+
+            <p>{{article.price}} {{article.devise}}</p>
+
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}

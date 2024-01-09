@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}article-detail{% endblock title %}
+
+{% block content %}
+    
+    <div class="article_details" align="center">
+        <h2>{{ article.title }} </h2>
+
+        <p>
+            <img src="/media/{{ article.image }}" width="40%" >
+        </p>
+        <p>
+            Description: 
+                {{article.content}}
+        </p>
+
+        <p>
+            Price: {{article.price}} {{ article.devise }}
+        </p>
+        <p>
+            Author: {{article.author}}
+        </p>
+
+    </div>
+
+    <div align="center">
+        <a href="#">Ajouter cet article à mon panier</a>
+    </div>
+{% endblock content %}

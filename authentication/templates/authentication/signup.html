@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Inscription{% endblock title %}
+{% block headerContent %}{% endblock  %}
+{% block navcontent %}{% endblock  %}
+{% block content %}
+    <h1 class="register_title">Inscription</h1>
+    {% if form.error %}
+        {{ form.error }}
+    {% endif %}
+
+    <div class="signup-contains">
+        <div class "image-cote-de-form"> 
+            <img src="{% static "img/course.png" %}" alt="image de Connexion">
+        </div>
+        
+        <div class="signup_form">
+            <form method="POST"  >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Signup">
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+

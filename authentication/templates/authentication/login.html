@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Connexion{% endblock title %}
+{% block headerContent %}{% endblock  %}
+{% block navcontent %}{% endblock  %}
+{% block content %}
+    <h1 class="Login_title">Connexion</h1>
+
+    <div class="login-contains">
+        <div class "image-cote-de-form"> 
+            <img src="{% static "img/course.png" %}" alt="image d'inscription">
+        </div>
+
+        <div class="class_form">
+            <form action= "" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <p >
+                <input type="submit" value="Login" >
+                <a href="{% url "authentication:signup" %}">Signup now</a>
+            </p>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+

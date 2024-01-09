@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}compte{% endblock title %}
+{% comment %} {% block headerContent %}{% endblock  %}
+{% block navcontent %}{% endblock  %} {% endcomment %}
+{% block content %}
+    <h1 sclass="Logout_title">My account</h1>
+    <br>
+    <div class="user_account_info">
+        <div class="profile-left-side">
+            <div>
+                <p>
+                    <h2>Gestion des Payements</h2>
+                </p>
+                <p>
+                    Mes Payements ...
+                </p>
+            </div>
+            <div>
+                <p>
+                    Mes commandes ...
+                </p>
+            </div>
+        </div>
+        <div class="profile-right-side">
+            <p>
+                <h2>Profile infos</h2> ...
+            </p>
+            {% if user.is_authenticated %}
+            <p>
+               <h5> Nom d'utlisateur :</h5> {{ user.username}}
+             </p>
+             <p>
+                <h5>Nom complet :</h5> {{ user.first_name }} {{ user.last_name }}
+             </p>
+             <p>
+               <h5> email:</h5> {{ user.email}}
+             </p>
+             <p>
+                <a href="authentication:logout">Deconnexion</a>
+             </p>
+             {% else %}
+             <p>
+                <a href="{% url "authentication:login" %}"> connectez-vous </a> |
+                <a href="{% url "authentication:signup" %}"> Inscrivez-vous </a>
+             </p>
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Article-Blog-{% block title %}Welcome{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static "css/app.css" %}">
+    </head>
+<body>
+    <header>
+       {% block headerContent %}
+        <div class="logo">
+            <a href="{% url "blog:home" %}">
+                <img src="{% static "img/home.jpg" %}" alt="logo">
+            </a>
+        </div>
+        <div class="search-bar">
+            <span>Rechercher</span>
+        </div>
+        <div class="head-center-link">
+            <div class="corbeille">
+               <li><a href="{% url "authentication:user_panier" %}"><img src="{% static "blog/panier.webp" %}" class="header-img">Panier</a></li>
+               <li><a href="{% url "authentication:user_account" %}"><img src="{% static "img/account.jpg" %}" class="header-img">Mon compte</a></li>
+            </div>
+        </div>
+        <div class="header-links">
+            <li><a href="{% url "blog:contact_us" %}"><img src="{% static "blog/contact.JPg" %}" class="header-img">Contactez-nous</a></li>
+            <li><a href="{% url "blog:newsletters" %}"><img src="" class="header-img">Newsletters</a></li>
+            <li><a href="{% url "blog:about_us" %}"> <img src="{% static "blog/about.png" %}" class="header-img">A propos</a></li>
+        </div>
+       {% endblock %}
+    </header>
+
+    <div class="container">
+       {% block navcontent %}
+       <nav class="sidebar">
+        <ul>
+            <li><a href="{% url "blog:home" %}">Acceuil</a></li>
+            <li><a href="{% url "article:upload_article" %}">Publier un article</a></li>
+            <li><a href="">Gestion des stock</a></li>
+        </ul>
+       </nav>
+
+       {% endblock %}
+        <div class="content">
+           {% block content %} {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+       <p>
+        copyright: articleblog 2023 all right reserved
+       </p>
+    </footer>
+</body>
+</html>
+

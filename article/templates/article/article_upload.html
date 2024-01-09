@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}upload-article{% endblock title %}
+
+{% block content %}
+    <h2>Telecharger un article</h2>
+
+    <div class="article_form">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ article_form.as_p }}
+            <p>
+                <input type="submit" value="Publier">
+            </p>
+        </form>
+    </div>
+{% endblock content %}
