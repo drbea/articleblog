@@ -11,7 +11,7 @@
         <div class="article-container">
             <h3><a href="{% url "article:article_details" article.id %}" class="article-detail">{{article.title}}</a></h3>
             <p>
-                <img src="/media/{{ article.image }}" width="80" height="120" />
+                <img src="/media/{{ article.image }}" width="120px" height="120px" />
             </p>
 
             <p>{{article.price}} {{article.devise}}</p>

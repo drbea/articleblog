@@ -10,7 +10,6 @@ class PhotoForm(forms.ModelForm):
         fields = ("image",)
        
 
-
 class ArticleForm(forms.ModelForm):
     #edit_article = forms.BooleanField(widget = forms.HiddenInput, initial = True)
 

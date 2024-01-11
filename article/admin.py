@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from article.models import Article, Photo
+from article.models import Article, Panier, Photo
 
 # Register your models here.
 @admin.register(Article)
@@ -19,3 +19,6 @@ class ArticleAdmin(admin.ModelAdmin):
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ("image",)
     
+@admin.register(Panier)
+class PanierAdmin(admin.ModelAdmin):
+    list_display = ("panier_user",)

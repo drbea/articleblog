@@ -5,6 +5,13 @@
 {% block navcontent %}{% endblock  %} {% endcomment %}
 {% block content %}
     <h1 sclass="Logout_title">Mes articles</h1>
+    <div>
+        {% if panier %}
+            {% for article in panier %}
+                <p>{{ panier.Panier_user }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
     <br>
     <div class="user_account_info">
 

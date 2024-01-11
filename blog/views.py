@@ -6,8 +6,14 @@ from article.models import Article
 
 def index(request):
     articles = Article.objects.all()
+    searched_articles = ""
+    if "search" in request.GET and request.GET["search"]:
+        searched_query = request.GET.get("search")
+        searched_articles = Article.objects.filter(title__contains = searched_query)
+        
     context = {
         "articles": articles,
+        "searched_articles": searched_articles,
         }
 
     return render(request, "blog/index.html", context)

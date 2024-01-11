@@ -5,22 +5,6 @@ from PIL import Image
 
 # Create your models here.
 
-class Photo(models.Model):
-    image = models.ImageField()
-    #uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null= True, blank = True)
-    #date_created = models.DateTimeField(auto_now_add = True)
-
-    IMAGE_MAX_SIZE = (800, 800)
-
-    def resize_image(self):
-        image = Image.open(self.image)
-        image.thumbnail(self.IMAGE_MAX_SIZE)
-        image.save(self.image.path)
-    
-    def save(self, *args, **kwargs):
-        super(Photo, self).save(*args, **kwargs)
-        self.resize_image()
-
 class Article(models.Model):
 
     title = models.CharField(max_length = 128)
@@ -34,6 +18,9 @@ class Article(models.Model):
     #date_created = models.DateTimeField(auto_now_add = True, null = True)
     IMAGE_MAX_SIZE = (800, 800)
 
+    def __str__(self):
+        return self.title
+
     def resize_image(self):
         image = Image.open(self.image)
         image.thumbnail(self.IMAGE_MAX_SIZE)
@@ -41,4 +28,25 @@ class Article(models.Model):
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        self.resize_image()
+
+class Panier(models.Model):
+    #articles = models.ForeignKey("article.Article", on_delete=models.CASCADE, null = True)
+    panier_user = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
+    article = models.ManyToManyField("Article")
+
+class Photo(models.Model):
+    image = models.ImageField()
+    #uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null= True, blank = True)
+    #date_created = models.DateTimeField(auto_now_add = True)
+
+    IMAGE_MAX_SIZE = (800, 800)
+
+    def resize_image(self):
+        image = Image.open(self.image)
+        image.thumbnail(self.IMAGE_MAX_SIZE)
+        image.save(self.image.path)
+        
+    def save(self, *args, **kwargs):
+        super(Photo, self).save(*args, **kwargs)
         self.resize_image()

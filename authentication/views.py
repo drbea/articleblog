@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth import authenticate, login, logout
 
+from article.models import Panier
+
 from . import forms
 
 # Create your views here.
@@ -83,7 +85,11 @@ def user_account(request):
 
 
 def user_panier(request):
-    context = { "form": "form"}
+
+    panier = ""
+    if request.user is not None:
+        panier = Panier.objects.filter(panier_user = request.user) 
+    context = { "panier": panier}
     return render(request, "authentication/user_panier.html", context)
 
     

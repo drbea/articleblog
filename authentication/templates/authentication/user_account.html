@@ -28,8 +28,12 @@
             </p>
             {% if user.is_authenticated %}
             <p>
+                <img src="/media/{{user.profile_pick}}" width="50px">
+             </p>
+            <p>
                <h5> Nom d'utlisateur :</h5> {{ user.username}}
              </p>
+
              <p>
                 <h5>Nom complet :</h5> {{ user.first_name }} {{ user.last_name }}
              </p>
