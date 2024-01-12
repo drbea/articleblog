@@ -1,0 +1,17 @@
+
+
+<div>
+    <div class="article-container">
+     <h3>
+        <a href="{% url "article:article_details" post.id %}" class="article-detail">{{post.title}}</a>
+    </h3>
+
+        <p>
+            <img src="/media/{{ post.image }}" width="120px" height="120px" />
+        </p>
+
+        <p>{{post.price}} {{post.devise}}</p>
+
+    </div>
+        
+      </div>

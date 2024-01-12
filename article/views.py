@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 #from . import forms
-from article.forms import ArticleForm, PhotoForm
+from article.forms import ArticleForm
 from article.models import Article
 # Create your views here.
 

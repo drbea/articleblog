@@ -86,8 +86,8 @@ def user_account(request):
 
 def user_panier(request):
 
-    panier = ""
-    if request.user is not None:
+    panier = None
+    if request.user != "":
         panier = Panier.objects.filter(panier_user = request.user) 
     context = { "panier": panier}
     return render(request, "authentication/user_panier.html", context)

@@ -4,10 +4,21 @@
 {% comment %} {% block headerContent %}{% endblock  %} {% endcomment %}
 {% comment %} {% block navcontent %}{% endblock  %} {% endcomment %}
 {% block content %}
-    <h1 sclass="Logout_title">Resultat pour  </h1>
-   <br>
-   <br>
-    <p>Nous sommes ...</p>
+    {% if query %}
+        {% if posts %}
+            <h1 sclass="Logout_title">Resultat pour  {{ query }}</h1>
+            {% for post in posts %}
+                {% include "blog/partial/info_article.html" %}
+            {% endfor %}
+        {% else %}
+            <div>
+                <p> Pas de resultats pour votre {{ query }}</p>
+            </div>
+        {% endif %}
+    {% else %}
+        <h1>S'il vous plait entrer un terme de recherche</h1>
+    {% endif %}
+
 
 {% endblock content %}
 

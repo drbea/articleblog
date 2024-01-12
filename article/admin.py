@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from article.models import Article, Panier, Photo
+from article.models import Article, Panier, Category
 
 # Register your models here.
 @admin.register(Article)
@@ -15,10 +15,10 @@ class ArticleAdmin(admin.ModelAdmin):
     #ajouter de la pagination pour ne pas afficher tous les elements sur une seule page
     #list_per_page = 8
 
-@admin.register(Photo)
-class PhotoAdmin(admin.ModelAdmin):
-    list_display = ("image",)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("name", )
     
 @admin.register(Panier)
 class PanierAdmin(admin.ModelAdmin):
-    list_display = ("panier_user",)
+    list_display = ("pamier_name",)
