@@ -4,12 +4,11 @@ from django.contrib.auth.models import AbstractUser
 from setting import settings
 
 # Create your models here.
-
 class User(AbstractUser):
 
     profile_pick = models.ImageField(verbose_name = "Photo de profil", null=True)
     birth_date = models.DateField(null=True)
-    phone_number = models.CharField(max_length = 20, default = None, null=True)
+    phone_number = models.CharField(max_length = 20, default = None, null=True, unique = True)
     #panier = models.ManyToManyField("article.Panier", null=True)
 
 
