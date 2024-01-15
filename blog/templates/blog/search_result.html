@@ -6,7 +6,7 @@
 {% block content %}
     {% if query %}
         {% if posts %}
-            <h1 sclass="Logout_title">Resultat pour  {{ query }}</h1>
+            <h1 sclass="Logout_title">Resultat pour  '{{ query }}'</h1>
             {% for post in posts %}
                 {% include "blog/partial/info_article.html" %}
             {% endfor %}

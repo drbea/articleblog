@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-
+from article import views as articleViews
 app_name = "authentication"
 
 urlpatterns = [
@@ -8,5 +8,4 @@ urlpatterns = [
     path("logout/", views.logout_user, name = "logout"),
     path("signup/", views.signup_page, name = "signup"),
     path("account", views.user_account, name = "user_account"),
-    path("panier/", views.user_panier, name = "user_panier"),
 ]

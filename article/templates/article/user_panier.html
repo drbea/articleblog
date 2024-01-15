@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}compte{% endblock title %}
+{% comment %} {% block headerContent %}{% endblock  %}
+{% block navcontent %}{% endblock  %} {% endcomment %}
+{% block content %}
+    <h1 sclass="Logout_title">Mes articles</h1>
+    <div>
+        {% if user.is_authenticate %}
+            {% if articles_dans_panier %}
+            <ul>
+              {% for article in articles_dans_panier %}
+                    <li>
+                        {{ article.title }} - <br>Quantité: {{ article.linepanier.quantity }}
+                    <br>Prix: {{ article.price }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Total: {{ panier.total }} GNF</p>
+            {% else %}
+                <p>Votre panier est vide.</p>
+            {% endif %}
+        {% else %}
+        <div>
+            <p>
+               {{ unlog_message }}
+            </p>
+        </div>
+      {% endif %}
+    </div>
+{% endblock content %}
+

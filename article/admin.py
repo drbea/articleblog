@@ -19,6 +19,9 @@ class ArticleAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name", )
     
-@admin.register(Panier)
-class PanierAdmin(admin.ModelAdmin):
-    list_display = ("pamier_name",)
+#@admin.register(Panier)
+#class PanierAdmin(admin.ModelAdmin):
+    #list_display = ("pamier_name",)
+#    pass
+admin.site.register(Panier)
+

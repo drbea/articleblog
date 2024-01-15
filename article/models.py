@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import Sum
 from PIL import Image
 
 
@@ -18,17 +19,16 @@ class Article(models.Model):
 
     title = models.CharField(max_length = 128, null = True)
     image = models.ImageField(default = None, null = True)
-    category = models.ForeignKey("Category", on_delete=models.CASCADE, null = True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null = True)
     content = models.CharField(max_length = 5000, verbose_name = "Description")
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null = True)
-    price = models.IntegerField(default = 0)
+    #price = models.IntegerField(default = 0)
+    price = models.DecimalField(max_digits= 10, decimal_places= 1)
     devise = models.CharField(max_length = 5, null = True)
-    panier = models.ForeignKey("article.Panier", on_delete=models.DO_NOTHING, null = True)
     #date_created = models.DateTimeField(auto_now_add = True, null = True)
     #starred = models.BooleanField(default = False, null = True, verbose_name = "votes etoiles")
 
     IMAGE_MAX_SIZE = (800, 800)
-
 
     def resize_image(self):
         image = Image.open(self.image)
@@ -44,9 +44,13 @@ class Article(models.Model):
 
 class Panier(models.Model):
     
-    pamier_name = models.CharField(max_length = 128, null = True)
-    panier_user = models.ForeignKey(settings.AUTH_USER_MODEL, null = True, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null= True)
+    articles = models.ManyToManyField(Article, through= "LinePanier")
 
-    def __str__(self):
-        return self.pamier_name
-    
+    def total(self):
+        return self.articles.aggregate(Sum("price"))["price__sum"]
+
+class LinePanier(models.Model):
+    panier = models.ForeignKey(Panier, on_delete= models.CASCADE)
+    article = models.ForeignKey(Article, on_delete= models.CASCADE)
+    quantity = models.PositiveIntegerField(default= 1)
