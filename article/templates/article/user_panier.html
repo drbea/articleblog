@@ -6,7 +6,7 @@
 {% block content %}
     <h1 sclass="Logout_title">Mes articles</h1>
     <div>
-        {% if user.is_authenticate %}
+        {% if user %}
             {% if articles_dans_panier %}
             <ul>
               {% for article in articles_dans_panier %}

@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-#from . import forms
 from article.forms import ArticleForm
 from article.models import Article, LinePanier, Panier
 # Create your views here.
