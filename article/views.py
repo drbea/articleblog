@@ -54,7 +54,6 @@ def add_to_panier(request, article_id):
 def ajouter_au_panier(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     panier, created = Panier.objects.get_or_create(user=request.user)
-
     ligne_panier, created = LinePanier.objects.get_or_create(panier=panier, article=article)
     if not created:
         ligne_panier.quantite += 1
