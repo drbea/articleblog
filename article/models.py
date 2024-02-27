@@ -53,4 +53,4 @@ class Panier(models.Model):
 class LinePanier(models.Model):
     panier = models.ForeignKey(Panier, on_delete= models.CASCADE)
     article = models.ForeignKey(Article, on_delete= models.CASCADE)
-    quantity = models.PositiveIntegerField(default= 1)
+    quantity = models.PositiveIntegerField(default= 1) 
